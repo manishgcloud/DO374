@@ -1,0 +1,1134 @@
+[student@workstation ~]$ lab start develop-navigator
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+ · Configuring exercise .............................................. SUCCESS
+
+[student@workstation ~]$ cd ~/develop-navigator/
+[student@workstation develop-navigator]$ ls
+ansible.cfg  intranet.yml  inventory
+[student@workstation develop-navigator]$ podman login hub.lab.example.com
+Username: student
+Password: 
+Login Succeeded!
+[student@workstation develop-navigator]$ ls
+ansible.cfg  intranet.yml  inventory
+[student@workstation develop-navigator]$ podman images
+REPOSITORY                              TAG         IMAGE ID      CREATED      SIZE
+hub.lab.example.com/ee-supported-rhel8  latest      b1eaaee1b70e  2 years ago  1.68 GB
+[student@workstation develop-navigator]$ lab start develop-git
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation develop-navigator]$ cd ~/git-repos/
+bash: cd: /home/student/git-repos/: No such file or directory
+[student@workstation develop-navigator]$ mkdir -p ~/git-repos/
+[student@workstation develop-navigator]$ cd ~/git-repos/
+[student@workstation git-repos]$ ls
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/develop-git.git
+Cloning into 'develop-git'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+[student@workstation git-repos]$ ls
+develop-git
+[student@workstation git-repos]$ git checkout -b exercise
+fatal: not a git repository (or any of the parent directories): .git
+[student@workstation git-repos]$ git config --global user.name 'Student User'
+[student@workstation git-repos]$ git config --global user.email student@lab.example.com
+[student@workstation git-repos]$ git config --global push.default simple
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ git config --global credential.https://git.lab.example.com.username student
+[student@workstation git-repos]$ git config --global credential.helper cache --timeout=7200
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ git config --global -l
+user.name=Student User
+user.email=student@lab.example.com
+push.default=simple
+credential.https://git.lab.example.com.username=student
+credential.helper=cache
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ tree
+.
+└── develop-git
+    ├── apache-setup.yml
+    └── templates
+        ├── httpd.conf.j2
+        └── index.html.j2
+
+2 directories, 3 files
+[student@workstation git-repos]$ git add apache-setup.yml ansible.cfg inventory
+fatal: not a git repository (or any of the parent directories): .git
+[student@workstation git-repos]$ cd
+[student@workstation ~]$ lab start develop-practices
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation ~]$ cd ~/develop-practices/
+[student@workstation develop-practices]$ ls
+ansible.cfg  deploy.yml  group_vars  inventory  templates
+[student@workstation develop-practices]$ 
+[student@workstation develop-practices]$ cd
+[student@workstation ~]$ ls -lt
+total 0
+drwxrwxr-x. 4 student student 95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 3 student student 25 Jul 28 10:07 git-repos
+drwxrwxr-x. 2 student student 62 Jul 28 10:03 develop-navigator
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Desktop
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Videos
+[student@workstation ~]$ 
+[student@workstation ~]$ lab start develop-review
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation ~]$ lab start manage-reusing
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation ~]$ ls -ltr
+total 0
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student  6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student 62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student 25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student 95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student 63 Jul 28 10:13 manage-reusing
+[student@workstation ~]$ lab start manage-finding
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+
+[student@workstation ~]$ lab start manage-selecting
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is absent ............... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is absent ............. SUCCESS
+ · Ensuring required packages are available .......................... SUCCESS
+ · Ensuring the '/webserver_data' directory exists on webservers ..... SUCCESS
+
+[student@workstation ~]$ lab start manage-review
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is available ............ SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Preparing servers ................................................. SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+
+[student@workstation ~]$ ls -ltr
+total 0
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student  62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student  25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student  95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student  63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student  42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student  62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student 119 Jul 28 10:15 manage-review
+[student@workstation ~]$ cd ~/manage-review/
+[student@workstation manage-review]$ ls
+ansible.cfg            cockpit.yml            inventory
+ansible-navigator.yml  create_samples_db.yml
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ ansible-navigator images
+[student@workstation manage-review]$ ansible-navigator run cockpit.yml --eei ee-supported-rhel8
+[student@workstation manage-review]$ lab start controller-playbooks
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Removing automation controller resources created during exercise .. SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation manage-review]$ lab start controller-review
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Removing automation controller resources .......................... SUCCESS
+ · Reverting web servers ............................................. SUCCESS
+
+[student@workstation manage-review]$ lab start config-ansible
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Installing required packages on workstation ....................... SUCCESS
+
+[student@workstation manage-review]$ lab start config-navigator
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is available ............ SUCCESS
+ · Installing required packages on workstation ....................... SUCCESS
+
+[student@workstation manage-review]$ lab start config-review
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation manage-review]$ lab start inventory-dynamic
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation manage-review]$ lab start inventory-yaml
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation manage-review]$ lab start inventory-variables
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation manage-review]$ lab start inventory-review
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation manage-review]$ lab start task-escalation
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation manage-review]$ git clone https://git.lab.example.com/student/task-escalation.git
+Cloning into 'task-escalation'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+[student@workstation manage-review]$ lab start task-execution
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring required packages are available .......................... SUCCESS
+ · Installing required packages on workstation ....................... SUCCESS
+
+[student@workstation manage-review]$ lab start task-tagging
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are available .......................... SUCCESS
+
+[student@workstation manage-review]$ lab start task-speed
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring required packages are available .......................... SUCCESS
+ · Creating fake web content on workstation .......................... SUCCESS
+ · Ensuring web servers are clean .................................... SUCCESS
+
+[student@workstation manage-review]$ lab start task-review
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Cleaning up the systems ........................................... SUCCESS
+ · Backing up the configuration of the systems ....................... SUCCESS
+
+[student@workstation manage-review]$ git clone https://git.lab.example.com/student/task-review.git
+Cloning into 'task-review'...
+remote: Enumerating objects: 56, done.
+remote: Counting objects: 100% (56/56), done.
+remote: Compressing objects: 100% (42/42), done.
+remote: Total 56 (delta 3), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (56/56), 7.40 KiB | 7.40 MiB/s, done.
+Resolving deltas: 100% (3/3), done.
+[student@workstation manage-review]$ lab start data-filters
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Cleaning up the systems ........................................... SUCCESS
+ · Setting up the systems ............................................ SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation manage-review]$ git clone https://git.lab.example.com/student/data-filters.git
+Cloning into 'data-filters'...
+remote: Enumerating objects: 63, done.
+remote: Counting objects: 100% (63/63), done.
+remote: Compressing objects: 100% (45/45), done.
+remote: Total 63 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (63/63), 8.88 KiB | 8.88 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation manage-review]$ 
+[student@workstation manage-review]$ ls -ltr
+total 88
+-rw-rw-r--. 1 student student    58 Jul 28 09:59 inventory
+-rw-rw-r--. 1 student student   531 Jul 28 09:59 create_samples_db.yml
+-rw-rw-r--. 1 student student   540 Jul 28 09:59 cockpit.yml
+-rw-rw-r--. 1 student student   184 Jul 28 09:59 ansible-navigator.yml
+-rw-rw-r--. 1 student student    56 Jul 28 09:59 ansible.cfg
+-rw-rw-r--. 1 student student     0 Jul 28 10:17 ansible-navigator.log
+-rw-rw-r--. 1 student student 67263 Jul 28 10:17 cockpit-artifact-2025-07-28T10:17:59.557168+00:00.json
+drwxrwxr-x. 3 student student   121 Jul 28 10:30 task-escalation
+drwxrwxr-x. 5 student student   254 Jul 28 10:36 task-review
+drwxrwxr-x. 5 student student   224 Jul 28 10:38 data-filters
+[student@workstation manage-review]$ cd
+[student@workstation ~]$ ls -ltr
+total 0
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student  62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student  25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student  95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student  63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student  42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student  62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student  42 Jul 28 10:23 config-ansible
+drwxrwxr-x. 2 student student 143 Jul 28 10:24 config-navigator
+drwxrwxr-x. 2 student student  94 Jul 28 10:24 config-review
+drwxrwxr-x. 2 student student 109 Jul 28 10:26 inventory-dynamic
+drwxrwxr-x. 3 student student 120 Jul 28 10:26 inventory-yaml
+drwxrwxr-x. 3 student student 180 Jul 28 10:27 inventory-variables
+drwxrwxr-x. 4 student student 174 Jul 28 10:32 task-execution
+drwxrwxr-x. 3 student student 176 Jul 28 10:34 task-speed
+drwxrwxr-x. 5 student student 272 Jul 28 10:38 manage-review
+[student@workstation ~]$ 
+[student@workstation ~]$ 
+[student@workstation ~]$ lab start data-lookups
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Preparing systems for the exercise ................................ SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/data-lookups.git
+Cloning into 'data-lookups'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 12 (delta 1), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (1/1), done.
+[student@workstation ~]$ 
+[student@workstation ~]$ 
+[student@workstation ~]$ ls -ltr
+total 0
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student   6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student  62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student  25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student  95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student  63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student  42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student  62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student  42 Jul 28 10:23 config-ansible
+drwxrwxr-x. 2 student student 143 Jul 28 10:24 config-navigator
+drwxrwxr-x. 2 student student  94 Jul 28 10:24 config-review
+drwxrwxr-x. 2 student student 109 Jul 28 10:26 inventory-dynamic
+drwxrwxr-x. 3 student student 120 Jul 28 10:26 inventory-yaml
+drwxrwxr-x. 3 student student 180 Jul 28 10:27 inventory-variables
+drwxrwxr-x. 4 student student 174 Jul 28 10:32 task-execution
+drwxrwxr-x. 3 student student 176 Jul 28 10:34 task-speed
+drwxrwxr-x. 5 student student 272 Jul 28 10:38 manage-review
+drwxrwxr-x. 4 student student 185 Jul 28 10:39 data-lookups
+[student@workstation ~]$ lab start data-loops
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Verifying the required packages are installed ..................... SUCCESS
+ · Preparing servera ................................................. SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+
+[student@workstation ~]$ lab start data-netfilters
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Verifying the required packages are installed ..................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+
+[student@workstation ~]$ lab start data-review
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/data-review.git
+Cloning into 'data-review'...
+remote: Enumerating objects: 74, done.
+remote: Counting objects: 100% (74/74), done.
+remote: Compressing objects: 100% (46/46), done.
+remote: Total 74 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (74/74), 14.19 KiB | 7.10 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation ~]$ 
+[student@workstation ~]$ 
+[student@workstation ~]$ lab start update-delegation
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/update-delegation.git
+Cloning into 'update-delegation'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+[student@workstation ~]$ lab start update-parallelism
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/u
+Cloning into 'u'...
+pdPassword for 'https://student@git.lab.example.com': 
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://git.lab.example.com/student/u.git/'
+[student@workstation ~]$ git clone https://git.lab.example.com/student/update-parallelism.git
+Cloning into 'update-parallelism'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (8/8), done.
+[student@workstation ~]$ 
+[student@workstation ~]$ lab start update-managementlab start update-management^C
+[student@workstation ~]$ lab start update-management
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring exercise hosts are cleaned ............................... SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/update-management.git
+Cloning into 'update-management'...
+remote: Enumerating objects: 62, done.
+remote: Counting objects: 100% (62/62), done.
+remote: Compressing objects: 100% (44/44), done.
+remote: Total 62 (delta 3), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (62/62), 14.50 KiB | 14.50 MiB/s, done.
+Resolving deltas: 100% (3/3), done.
+[student@workstation ~]$ 
+[student@workstation ~]$ lab start update-review
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring lab systems are clean .................................... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Starting the exercise ............................................. SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/update-review.git
+Cloning into 'update-review'...
+remote: Enumerating objects: 92, done.
+remote: Counting objects: 100% (92/92), done.
+remote: Compressing objects: 100% (61/61), done.
+remote: Total 92 (delta 6), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (92/92), 16.37 KiB | 2.73 MiB/s, done.
+Resolving deltas: 100% (6/6), done.
+[student@workstation ~]$ ls -ltr
+total 12
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student   62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student   25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student   95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student   63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student   42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student   62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student   42 Jul 28 10:23 config-ansible
+drwxrwxr-x. 2 student student  143 Jul 28 10:24 config-navigator
+drwxrwxr-x. 2 student student   94 Jul 28 10:24 config-review
+drwxrwxr-x. 2 student student  109 Jul 28 10:26 inventory-dynamic
+drwxrwxr-x. 3 student student  120 Jul 28 10:26 inventory-yaml
+drwxrwxr-x. 3 student student  180 Jul 28 10:27 inventory-variables
+drwxrwxr-x. 4 student student  174 Jul 28 10:32 task-execution
+drwxrwxr-x. 3 student student  176 Jul 28 10:34 task-speed
+drwxrwxr-x. 5 student student  272 Jul 28 10:38 manage-review
+drwxrwxr-x. 4 student student  185 Jul 28 10:39 data-lookups
+drwxrwxr-x. 5 student student  186 Jul 28 10:40 data-loops
+drwxrwxr-x. 2 student student  137 Jul 28 10:40 data-netfilters
+drwxrwxr-x. 6 student student 4096 Jul 28 10:42 data-review
+drwxrwxr-x. 3 student student  128 Jul 28 10:43 update-delegation
+drwxrwxr-x. 3 student student  149 Jul 28 10:44 update-parallelism
+drwxrwxr-x. 8 student student 4096 Jul 28 10:46 update-management
+drwxrwxr-x. 9 student student 4096 Jul 28 10:48 update-review
+[student@workstation ~]$ lab start create-writing
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Preparing the exercise ............................................ SUCCESS
+
+[student@workstation ~]$ lab start builder-custom
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is available ............ SUCCESS
+
+[student@workstation ~]$ lab start builder-validate
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is available ............ SUCCESS
+ · Ensuring the 'ansible-builder-rhel8' container is available ....... SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+ · Ensuring the 'ee-motd-minimal' container is available ............. SUCCESS
+
+[student@workstation ~]$ lab start builder-use
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Ensuring the 'ee-minimal-rhel8' container is available ............ SUCCESS
+ · Ensuring the 'ansible-builder-rhel8' container is available ....... SUCCESS
+ · Building content collection ....................................... SUCCESS
+ · Building custom automation execution environment .................. SUCCESS
+ · Preparing the first exercise Git repository on
+   https://git.lab.example.com ....................................... SUCCESS
+ · Preparing the second exercise Git repository on
+   https://git.lab.example.com ....................................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Configuring automation controller resources needed for exercise ... SUCCESS
+ · Restoring servers ................................................. SUCCESS
+
+[student@workstation ~]$ git clone git.lab.example.com:student/usecollection.
+Cloning into 'usecollection.'...
+
+gitbash: git-upload-pack: command not found
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[student@workstation ~]$ 
+[student@workstation ~]$ git clone https://git.lab.example.com/student/usecollection.git
+Cloning into 'usecollection'...
+Password for 'https://student@git.lab.example.com': 
+[student@workstation ~]$ git clone https://git.lab.example.com/student/usecollection.git
+Cloning into 'usecollection'...
+Password for 'https://student@git.lab.example.com': 
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://git.lab.example.com/student/usecollection.git/'
+[student@workstation ~]$ git clone https://git.lab.example.com/student/usecollection.git
+Cloning into 'usecollection'...
+Password for 'https://student@git.lab.example.com': 
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://git.lab.example.com/student/usecollection.git/'
+[student@workstation ~]$ git clone https://git.lab.example.com/student/usecollection.git
+Cloning into 'usecollection'...
+Password for 'https://student@git.lab.example.com': 
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://git.lab.example.com/student/usecollection.git/'
+[student@workstation ~]$ lab start create-review
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Preparing automation controller and private automation hub ........ SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Reverting web servers ............................................. SUCCESS
+
+[student@workstation ~]$ git clone 
+fatal: You must specify a repository to clone.
+
+usage: git clone [<options>] [--] <repo> [<dir>]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    -n, --no-checkout     don't create a checkout
+    --bare                create a bare repository
+    --mirror              create a mirror repository (implies bare)
+    -l, --local           to clone from a local repository
+    --no-hardlinks        don't use local hardlinks, always copy
+    -s, --shared          setup as shared repository
+    --recurse-submodules[=<pathspec>]
+                          initialize submodules in the clone
+    --recursive ...       alias of --recurse-submodules
+    -j, --jobs <n>        number of submodules cloned in parallel
+    --template <template-directory>
+                          directory from which templates will be used
+    --reference <repo>    reference repository
+    --reference-if-able <repo>
+                          reference repository
+    --dissociate          use --reference only while cloning
+    -o, --origin <name>   use <name> instead of 'origin' to track upstream
+    -b, --branch <branch>
+                          checkout <branch> instead of the remote's HEAD
+    -u, --upload-pack <path>
+                          path to git-upload-pack on the remote
+    --depth <depth>       create a shallow clone of that depth
+    --shallow-since <time>
+                          create a shallow clone since a specific time
+    --shallow-exclude <revision>
+                          deepen history of shallow clone, excluding rev
+    --single-branch       clone only one branch, HEAD or --branch
+    --no-tags             don't clone any tags, and make later fetches not to follow them
+    --shallow-submodules  any cloned submodules will be shallow
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -c, --config <key=value>
+                          set config inside the new repository
+    --server-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --filter <args>       object filtering
+    --remote-submodules   any cloned submodules will use their remote-tracking branch
+    --sparse              initialize sparse-checkout file to include only files at root
+
+[student@workstation ~]$ git clone lab start create-review^C
+[student@workstation ~]$ git clone 
+fatal: You must specify a repository to clone.
+
+usage: git clone [<options>] [--] <repo> [<dir>]
+
+    -v, --verbose         be more verbose
+    -q, --quiet           be more quiet
+    --progress            force progress reporting
+    -n, --no-checkout     don't create a checkout
+    --bare                create a bare repository
+    --mirror              create a mirror repository (implies bare)
+    -l, --local           to clone from a local repository
+    --no-hardlinks        don't use local hardlinks, always copy
+    -s, --shared          setup as shared repository
+    --recurse-submodules[=<pathspec>]
+                          initialize submodules in the clone
+    --recursive ...       alias of --recurse-submodules
+    -j, --jobs <n>        number of submodules cloned in parallel
+    --template <template-directory>
+                          directory from which templates will be used
+    --reference <repo>    reference repository
+    --reference-if-able <repo>
+                          reference repository
+    --dissociate          use --reference only while cloning
+    -o, --origin <name>   use <name> instead of 'origin' to track upstream
+    -b, --branch <branch>
+                          checkout <branch> instead of the remote's HEAD
+    -u, --upload-pack <path>
+                          path to git-upload-pack on the remote
+    --depth <depth>       create a shallow clone of that depth
+    --shallow-since <time>
+                          create a shallow clone since a specific time
+    --shallow-exclude <revision>
+                          deepen history of shallow clone, excluding rev
+    --single-branch       clone only one branch, HEAD or --branch
+    --no-tags             don't clone any tags, and make later fetches not to follow them
+    --shallow-submodules  any cloned submodules will be shallow
+    --separate-git-dir <gitdir>
+                          separate git dir from working tree
+    -c, --config <key=value>
+                          set config inside the new repository
+    --server-option <server-specific>
+                          option to transmit
+    -4, --ipv4            use IPv4 addresses only
+    -6, --ipv6            use IPv6 addresses only
+    --filter <args>       object filtering
+    --remote-submodules   any cloned submodules will use their remote-tracking branch
+    --sparse              initialize sparse-checkout file to include only files at root
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/use-collection.git
+Cloning into 'use-collection'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (9/9), done.
+[student@workstation ~]$ ls -ltr
+total 12
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student   62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student   25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student   95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student   63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student   42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student   62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student   42 Jul 28 10:23 config-ansible
+drwxrwxr-x. 2 student student  143 Jul 28 10:24 config-navigator
+drwxrwxr-x. 2 student student   94 Jul 28 10:24 config-review
+drwxrwxr-x. 2 student student  109 Jul 28 10:26 inventory-dynamic
+drwxrwxr-x. 3 student student  120 Jul 28 10:26 inventory-yaml
+drwxrwxr-x. 3 student student  180 Jul 28 10:27 inventory-variables
+drwxrwxr-x. 4 student student  174 Jul 28 10:32 task-execution
+drwxrwxr-x. 3 student student  176 Jul 28 10:34 task-speed
+drwxrwxr-x. 5 student student  272 Jul 28 10:38 manage-review
+drwxrwxr-x. 4 student student  185 Jul 28 10:39 data-lookups
+drwxrwxr-x. 5 student student  186 Jul 28 10:40 data-loops
+drwxrwxr-x. 2 student student  137 Jul 28 10:40 data-netfilters
+drwxrwxr-x. 6 student student 4096 Jul 28 10:42 data-review
+drwxrwxr-x. 3 student student  128 Jul 28 10:43 update-delegation
+drwxrwxr-x. 3 student student  149 Jul 28 10:44 update-parallelism
+drwxrwxr-x. 8 student student 4096 Jul 28 10:46 update-management
+drwxrwxr-x. 9 student student 4096 Jul 28 10:48 update-review
+drwxrwxr-x. 3 student student  123 Jul 28 10:49 create-writing
+drwxrwxr-x. 4 student student   72 Jul 28 10:49 builder-custom
+drwxrwxr-x. 3 student student  107 Jul 28 10:50 builder-validate
+drwxr-xr-x. 3 student student   22 Jul 28 10:52 exercise-motd
+drwxrwxr-x. 2 student student   40 Jul 28 10:53 builder-use
+drwxrwxr-x. 3 student student  135 Jul 28 10:58 create-review
+drwxrwxr-x. 4 student student  141 Jul 28 10:59 use-collection
+[student@workstation ~]$ lab start create-review
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Preparing automation controller and private automation hub ........ SUCCESS
+ · Adding exercise content ........................................... SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Reverting web servers ............................................. SUCCESS
+
+[student@workstation ~]$ lab start review-cr1
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Preparing servers ................................................. SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+
+[student@workstation ~]$ lab start review-cr1^C
+[student@workstation ~]$ git clone https://git.lab.example.com/student/review-cr1.git
+Cloning into 'review-cr1'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 18 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (18/18), 4.70 KiB | 4.70 MiB/s, done.
+[student@workstation ~]$ lab start review-cr2
+
+Starting lab.
+
+ · Checking status for lab systems ................................... SUCCESS
+ · Ensuring the 'ee-supported-rhel8' container is available .......... SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Backing up the configuration of the systems ....................... SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+
+[student@workstation ~]$ git clone https://
+fatal: No directory name could be guessed.
+Please specify a directory on the command line
+[student@workstation ~]$ 
+[student@workstation ~]$ git clone https://git.lab.example.com/student/review-cr2.git
+Cloning into 'review-cr2'...
+remote: Enumerating objects: 110, done.
+remote: Counting objects: 100% (110/110), done.
+remote: Compressing objects: 100% (72/72), done.
+remote: Total 110 (delta 4), reused 110 (delta 4), pack-reused 0
+Receiving objects: 100% (110/110), 184.56 KiB | 20.51 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation ~]$ lab start review-cr3
+
+Starting lab.
+
+ · Checking lab systems .............................................. SUCCESS
+ · Preparing exercise Git repository on https://git.lab.example.com .. SUCCESS
+ · Ensuring required packages are installed .......................... SUCCESS
+ · Subscribing automation controller ................................. SUCCESS
+ · Preparing automation controller and private automation hub ........ SUCCESS
+ · Creating exercise working directory ............................... SUCCESS
+ · Reverting iSCSI servers ........................................... SUCCESS
+
+[student@workstation ~]$ git clone https://git.lab.example.com/student/iscsi.git
+Cloning into 'iscsi'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+[student@workstation ~]$ ls -ltr
+total 16
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Videos
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Templates
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Public
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Pictures
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Music
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Downloads
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Documents
+drwxr-xr-x. 2 student student    6 Feb  2  2023 Desktop
+drwxrwxr-x. 2 student student   62 Jul 28 10:03 develop-navigator
+drwxrwxr-x. 3 student student   25 Jul 28 10:07 git-repos
+drwxrwxr-x. 4 student student   95 Jul 28 10:10 develop-practices
+drwxrwxr-x. 2 student student   63 Jul 28 10:13 manage-reusing
+drwxrwxr-x. 2 student student   42 Jul 28 10:14 manage-finding
+drwxrwxr-x. 2 student student   62 Jul 28 10:14 manage-selecting
+drwxrwxr-x. 2 student student   42 Jul 28 10:23 config-ansible
+drwxrwxr-x. 2 student student  143 Jul 28 10:24 config-navigator
+drwxrwxr-x. 2 student student   94 Jul 28 10:24 config-review
+drwxrwxr-x. 2 student student  109 Jul 28 10:26 inventory-dynamic
+drwxrwxr-x. 3 student student  120 Jul 28 10:26 inventory-yaml
+drwxrwxr-x. 3 student student  180 Jul 28 10:27 inventory-variables
+drwxrwxr-x. 4 student student  174 Jul 28 10:32 task-execution
+drwxrwxr-x. 3 student student  176 Jul 28 10:34 task-speed
+drwxrwxr-x. 5 student student  272 Jul 28 10:38 manage-review
+drwxrwxr-x. 4 student student  185 Jul 28 10:39 data-lookups
+drwxrwxr-x. 5 student student  186 Jul 28 10:40 data-loops
+drwxrwxr-x. 2 student student  137 Jul 28 10:40 data-netfilters
+drwxrwxr-x. 6 student student 4096 Jul 28 10:42 data-review
+drwxrwxr-x. 3 student student  128 Jul 28 10:43 update-delegation
+drwxrwxr-x. 3 student student  149 Jul 28 10:44 update-parallelism
+drwxrwxr-x. 8 student student 4096 Jul 28 10:46 update-management
+drwxrwxr-x. 9 student student 4096 Jul 28 10:48 update-review
+drwxrwxr-x. 3 student student  123 Jul 28 10:49 create-writing
+drwxrwxr-x. 4 student student   72 Jul 28 10:49 builder-custom
+drwxrwxr-x. 3 student student  107 Jul 28 10:50 builder-validate
+drwxr-xr-x. 3 student student   22 Jul 28 10:52 exercise-motd
+drwxrwxr-x. 2 student student   40 Jul 28 10:53 builder-use
+drwxrwxr-x. 3 student student  135 Jul 28 10:58 create-review.backup-Mon-28-10:58:58
+drwxrwxr-x. 4 student student  141 Jul 28 10:59 use-collection
+drwxrwxr-x. 3 student student  135 Jul 28 11:02 create-review
+drwxrwxr-x. 7 student student  157 Jul 28 11:04 review-cr1
+drwxrwxr-x. 8 student student 4096 Jul 28 11:05 review-cr2
+drwxrwxr-x. 4 student student   81 Jul 28 11:07 review-cr3
+drwxrwxr-x. 3 student student   34 Jul 28 11:08 iscsi
+[student@workstation ~]$ cd git-repos/
+[student@workstation git-repos]$ ls -lt
+total 0
+drwxrwxr-x. 4 student student 59 Jul 28 10:07 develop-git
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ git clone git@git.lab.example.com:project.git
+Cloning into 'project'...
+remote: 
+remote: ========================================================================
+remote: 
+remote: The namespace you were looking for could not be found.
+remote: 
+remote: ========================================================================
+remote: 
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/develop-review.git
+Cloning into 'develop-review'...
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 17 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (17/17), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/inventory-review.git
+Cloning into 'inventory-review'...
+remote: Enumerating objects: 58, done.
+remote: Counting objects: 100% (58/58), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 58 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (58/58), 7.52 KiB | 7.52 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/task-escalation.git
+Cloning into 'task-escalation'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+[student@workstation git-repos]$ ls -ltr
+total 0
+drwxrwxr-x. 4 student student  59 Jul 28 10:07 develop-git
+drwxrwxr-x. 5 student student 119 Jul 28 11:10 develop-review
+drwxrwxr-x. 5 student student 246 Jul 28 11:11 inventory-review
+drwxrwxr-x. 3 student student 121 Jul 28 11:11 task-escalation
+[student@workstation git-repos]$ 
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/task-tagging.git
+Cloning into 'task-tagging'...
+remote: Enumerating objects: 57, done.
+remote: Counting objects: 100% (57/57), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 57 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (57/57), 7.62 KiB | 7.62 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/task-review.git
+Cloning into 'task-review'...
+remote: Enumerating objects: 56, done.
+remote: Counting objects: 100% (56/56), done.
+remote: Compressing objects: 100% (42/42), done.
+remote: Total 56 (delta 3), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (56/56), 7.40 KiB | 7.40 MiB/s, done.
+Resolving deltas: 100% (3/3), done.
+[student@workstation git-repos]$ ls -ltr
+total 0
+drwxrwxr-x. 4 student student  59 Jul 28 10:07 develop-git
+drwxrwxr-x. 5 student student 119 Jul 28 11:10 develop-review
+drwxrwxr-x. 5 student student 246 Jul 28 11:11 inventory-review
+drwxrwxr-x. 3 student student 121 Jul 28 11:11 task-escalation
+drwxrwxr-x. 5 student student 232 Jul 28 11:11 task-tagging
+drwxrwxr-x. 5 student student 254 Jul 28 11:12 task-review
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/data-filters.git
+Cloning into 'data-filters'...
+remote: Enumerating objects: 63, done.
+remote: Counting objects: 100% (63/63), done.
+remote: Compressing objects: 100% (45/45), done.
+remote: Total 63 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (63/63), 8.88 KiB | 8.88 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/data-lookups.git
+Cloning into 'data-lookups'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 12 (delta 1), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (12/12), done.
+Resolving deltas: 100% (1/1), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/data-review.git
+Cloning into 'data-review'...
+remote: Enumerating objects: 74, done.
+remote: Counting objects: 100% (74/74), done.
+remote: Compressing objects: 100% (46/46), done.
+remote: Total 74 (delta 4), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (74/74), 14.19 KiB | 14.19 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/update-delegation.git
+Cloning into 'update-delegation'...
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (7/7), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/update-parallelism.git
+Cloning into 'update-parallelism'...
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (8/8), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/upd
+Cloning into 'upd'...
+atPassword for 'https://student@git.lab.example.com': 
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/update-management.git
+Cloning into 'update-management'...
+remote: Enumerating objects: 62, done.
+remote: Counting objects: 100% (62/62), done.
+remote: Compressing objects: 100% (44/44), done.
+remote: Total 62 (delta 3), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (62/62), 14.50 KiB | 14.50 MiB/s, done.
+Resolving deltas: 100% (3/3), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/update-review.git
+Cloning into 'update-review'...
+remote: Enumerating objects: 92, done.
+remote: Counting objects: 100% (92/92), done.
+remote: Compressing objects: 100% (61/61), done.
+remote: Total 92 (delta 6), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (92/92), 16.37 KiB | 3.27 MiB/s, done.
+Resolving deltas: 100% (6/6), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/review-cr1.git
+Cloning into 'review-cr1'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 18 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (18/18), 4.70 KiB | 4.70 MiB/s, done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/review-cr2.git
+Cloning into 'review-cr2'...
+remote: Enumerating objects: 110, done.
+remote: Counting objects: 100% (110/110), done.
+remote: Compressing objects: 100% (72/72), done.
+remote: Total 110 (delta 4), reused 110 (delta 4), pack-reused 0
+Receiving objects: 100% (110/110), 184.56 KiB | 16.78 MiB/s, done.
+Resolving deltas: 100% (4/4), done.
+[student@workstation git-repos]$ git clone https://git.lab.example.com/student/iscsi.git
+Cloning into 'iscsi'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+[student@workstation git-repos]$ ls -ltr
+total 16
+drwxrwxr-x. 4 student student   59 Jul 28 10:07 develop-git
+drwxrwxr-x. 5 student student  119 Jul 28 11:10 develop-review
+drwxrwxr-x. 5 student student  246 Jul 28 11:11 inventory-review
+drwxrwxr-x. 3 student student  121 Jul 28 11:11 task-escalation
+drwxrwxr-x. 5 student student  232 Jul 28 11:11 task-tagging
+drwxrwxr-x. 5 student student  254 Jul 28 11:12 task-review
+drwxrwxr-x. 5 student student  224 Jul 28 11:12 data-filters
+drwxrwxr-x. 4 student student  185 Jul 28 11:12 data-lookups
+drwxrwxr-x. 6 student student 4096 Jul 28 11:12 data-review
+drwxrwxr-x. 3 student student  128 Jul 28 11:13 update-delegation
+drwxrwxr-x. 3 student student  149 Jul 28 11:13 update-parallelism
+drwxrwxr-x. 8 student student 4096 Jul 28 11:13 update-management
+drwxrwxr-x. 9 student student 4096 Jul 28 11:14 update-review
+drwxrwxr-x. 7 student student  157 Jul 28 11:14 review-cr1
+drwxrwxr-x. 8 student student 4096 Jul 28 11:14 review-cr2
+drwxrwxr-x. 3 student student   34 Jul 28 11:15 iscsi
+[student@workstation git-repos]$ 
