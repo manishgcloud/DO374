@@ -1,3 +1,12 @@
+/etc/bash_completion.d/lab
+/home/student/.venv/labs/bin/lab
+/home/student/.venv/labs/lib/python3.6/site-packages/do374/ansible/data-loops
+/home/student/.venv/labs/lib/python3.6/site-packages/do374/materials/labs/data-loops
+/home/student/DO374/data-loops
+/home/student/venv/labs/lib/python3.6/site-packages/do374/ansible/data-loops
+/home/student/venv/labs/lib/python3.6/site-packages/do374/materials/labs/data-loops
+
+
 [student@workstation ~]$ lab start develop-navigator
 
 Starting lab.
